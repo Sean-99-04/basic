@@ -11,7 +11,7 @@ const router = require("./routes/routes.js");
 // Production
 const uri =
   "mongodb+srv://Sean:" +
-  MONGODB_URI +
+  process.env.MONGODB_URI +
   "@cluster0.xuroh.mongodb.net/pets?retryWrites=true&w=majority";
 
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
