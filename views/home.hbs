@@ -1,2 +1,12 @@
-<h2>Hello {{name}}</h2>
-<button id="sendData">Send Data</button>
+<h2>Hello {{name}}!</h2>
+<p>You are {{age}} years old.</p>
+
+<form action="/routes/post" method="POST">
+    <label for="name">Name: </label>
+    <input type="text" value="Choco" name="name">
+    
+    <label for="age">Age: </label>
+    <input type="text" value="4" name="age">
+
+    <input type="submit" value="Submit">
+</form>
