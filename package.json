@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
+    "start": "nodemon server.js",
     "server": "nodemon server.js"
   },
   "repository": {
@@ -22,9 +22,8 @@
   "dependencies": {
     "express": "^4.17.1",
     "express-handlebars": "^5.2.0",
-    "mongoose": "^5.11.8"
-  },
-  "devDependencies": {
+    "mongoose": "^5.11.8",
     "nodemon": "^2.0.6"
-  }
+  },
+  "devDependencies": {}
 }
