@@ -4,15 +4,16 @@ const exphbs = require("express-handlebars");
 const mongoose = require("mongoose");
 const router = require("./routes/routes.js");
 
-// const { PORT, MONGODB_URI } = process.env;
+const { PORT, MONGODB_URI } = process.env;
 
 // Production
-const uri =
-  "mongodb+srv://Sean:" +
-  process.env.MONGODB_URI +
-  "@cluster0.xuroh.mongodb.net/pets?retryWrites=true&w=majority";
+// const uri =
+//   "mongodb+srv://Sean:" +
+//   process.env.MONGODB_URI +
+//   "@cluster0.xuroh.mongodb.net/pets?retryWrites=true&w=majority";
+const URI = MONGODB_URI;
 
-mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 app.engine(".hbs", exphbs({ extname: ".hbs" }));
 app.set("view engine", ".hbs");
@@ -31,6 +32,6 @@ app.get("/*", (req, res) => {
 });
 
 app.listen(
-  process.env.PORT || 5000,
+  PORT || 5000,
   console.log("Server running at http://localhost:5000")
 );
