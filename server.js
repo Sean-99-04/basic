@@ -1,17 +1,18 @@
+if ((process.env.NODE_ENV = "development")) {
+  require("dotenv").config();
+}
 const express = require("express");
 const app = express();
 const exphbs = require("express-handlebars");
 const mongoose = require("mongoose");
 const router = require("./routes/routes.js");
 
-// Development
-// const uri =
-//   "mongodb+srv://Sean:m0ngoPass@cluster0.xuroh.mongodb.net/pets?retryWrites=true&w=majority";
+const { PORT, MONGODB_URI } = process.env;
 
 // Production
 const uri =
   "mongodb+srv://Sean:" +
-  process.env.MONGODB_URI +
+  MONGODB_URI +
   "@cluster0.xuroh.mongodb.net/pets?retryWrites=true&w=majority";
 
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -32,7 +33,4 @@ app.get("/*", (req, res) => {
   res.send("404 There is nothing here");
 });
 
-app.listen(
-  process.env.PORT || 5000,
-  console.log("Server running at http://localhost:5000")
-);
+app.listen(PORT, console.log("Server running at http://localhost:5000"));
