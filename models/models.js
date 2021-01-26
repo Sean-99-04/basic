@@ -1,9 +1,16 @@
 const mongoose = require("mongoose");
 
-const mySchema = mongoose.Schema({
+const mySchema = new mongoose.Schema({
   _id: mongoose.Schema.Types.ObjectId,
-  name: String,
+  name: {
+    type: String,
+    required: true,
+  },
   age: Number,
+  dateCreated: {
+    type: Date,
+    default: new Date(),
+  },
 });
 
-module.exports = mongoose.model("Pet", mySchema);
+module.exports = mongoose.model("Pet", mySchema, "pets");
