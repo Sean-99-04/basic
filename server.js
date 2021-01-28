@@ -28,16 +28,7 @@ app.set("view engine", ".hbs");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
-app.use("/routes", router);
-
-app.get("/", (req, res) => {
-  const name = "Sean";
-  res.render("home", { name });
-});
-
-app.get("/*", (req, res) => {
-  res.send("404 There is nothing here");
-});
+app.use(router);
 
 // Server
 app.listen(
